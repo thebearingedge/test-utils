@@ -3,7 +3,7 @@ import chai from 'chai'
 import sinon from 'sinon'
 import sinonChai from 'sinon-chai'
 import chaiAsPromised from 'chai-as-promised'
-import jsom from 'jsdom'
+import jsdom from 'jsdom'
 import rootRequire from 'root-require'
 
 chai.use(sinonChai)
