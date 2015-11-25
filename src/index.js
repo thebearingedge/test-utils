@@ -8,6 +8,8 @@ import jsdom from 'jsdom'
 chai.use(sinonChai)
 chai.use(chaiAsPromised)
 
+require('sinon-as-promised')
+
 const { expect } = chai
 const { spy, stub } = sinon
 
