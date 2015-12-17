@@ -17,6 +17,9 @@ require('sinon-as-promised')
 const { expect, request } = chai
 const { spy, stub } = sinon
 
+const $ = ((node, selector) => node.querySelector(selector))
+const $$ = ((node, selector) => Array.from(node.querySelectorAll(selector)))
+
 export {
-  chai, expect, request, sinon, spy, stub, jsdom,
+  chai, expect, request, sinon, spy, stub, jsdom, $, $$
 }
