@@ -20,6 +20,23 @@ const { spy, stub } = sinon
 const $ = ((node, selector) => node.querySelector(selector))
 const $$ = ((node, selector) => Array.from(node.querySelectorAll(selector)))
 
+class Globals {
+
+  constructor(globals = {}) {
+    this.keys = Object.keys(globals)
+    this.globals = globals
+  }
+
+  add() {
+    this.keys.forEach(key => global[key] = this.globals[key])
+  }
+
+  remove() {
+    this.keys.forEach(key => global[key] = undefined)
+  }
+
+}
+
 export {
-  chai, expect, request, sinon, spy, stub, jsdom, $, $$
+  chai, expect, request, sinon, spy, stub, jsdom, $, $$, Globals
 }
