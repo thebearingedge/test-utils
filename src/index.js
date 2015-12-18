@@ -10,13 +10,8 @@ import jsdom from 'jsdom'
 
 chai.use(sinonChai)
 chai.use(chaiAsPromised)
-chai.use(chaiHttp)
-chai.use(chaiDom)
 
 require('sinon-as-promised')
-
-const { expect, request } = chai
-const { spy, stub } = sinon
 
 const $ = ((node, selector) => node.querySelector(selector))
 const $$ = ((node, selector) => Array.from(node.querySelectorAll(selector)))
@@ -45,6 +40,15 @@ function testVue() {
   return Vue
 }
 
-export {
-  chai, expect, request, sinon, spy, stub, jsdom, $, $$, Globals, testVue
+const { expect } = chai
+const { spy, stub } = sinon
+
+const utils = {
+  expect, sinon, spy, stub, jsdom, $, $$, Globals, testVue
+}
+
+utils.chaiDom = () => chai.use(chaiDom)
+utils.chaiHttp = () => {
+  chai.use(chaiHttp)
+  return chai.request
 }
