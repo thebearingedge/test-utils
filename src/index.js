@@ -4,8 +4,8 @@ import chai from 'chai'
 import sinon from 'sinon'
 import sinonChai from 'sinon-chai'
 import chaiAsPromised from 'chai-as-promised'
-import chaiHttp from 'chai-http'
-import chaiDom from 'chai-dom'
+import _chaiHttp from 'chai-http'
+import _chaiDom from 'chai-dom'
 import { jsdom } from 'jsdom'
 
 chai.use(sinonChai)
@@ -43,13 +43,12 @@ function testVue() {
 const { expect } = chai
 const { spy, stub } = sinon
 
-export default {
-  expect, spy, stub, jsdom, $, $$, Globals, testVue,
-  chaiDom() {
-    chai.use(chaiDom)
-  },
-  chaiHttp(app) {
-    chai.use(chaiHttp)
-    return chai.request(app)
-  }
+const chaiDom = () => chai.use(_chaiDom)
+const chaiHttp = app => {
+  chai.use(_chaiHttp)
+  return chai.request(app)
+}
+
+export {
+  expect, spy, stub, jsdom, $, $$, Globals, testVue, chaiDom, chaiHttp
 }
