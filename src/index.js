@@ -40,6 +40,9 @@ function testVue() {
   return Vue
 }
 
+const { expect } = chai
+const { spy, stub } = sinon
+
 const utils = {
   expect, sinon, spy, stub, jsdom, $, $$, Globals, testVue
 }
