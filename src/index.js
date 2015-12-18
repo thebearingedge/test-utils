@@ -40,15 +40,14 @@ function testVue() {
   return Vue
 }
 
-const { expect } = chai
-const { spy, stub } = sinon
-
 const utils = {
   expect, sinon, spy, stub, jsdom, $, $$, Globals, testVue
 }
 
 utils.chaiDom = () => chai.use(chaiDom)
-utils.chaiHttp = () => {
+utils.chaiHttp = app => {
   chai.use(chaiHttp)
-  return chai.request
+  return chai.request(app)
 }
+
+export default utils
