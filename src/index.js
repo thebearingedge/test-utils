@@ -1,4 +1,5 @@
 
+import { resolve } from 'path'
 import chai from 'chai'
 import sinon from 'sinon'
 import sinonChai from 'sinon-chai'
@@ -27,16 +28,23 @@ class Globals {
     this.globals = globals
   }
 
-  add() {
-    this.keys.forEach(key => global[key] = this.globals[key])
-  }
+  add() { Object.assign(global, this.globals) }
 
-  remove() {
-    this.keys.forEach(key => global[key] = undefined)
-  }
+  remove() { this.keys.forEach(key => delete global[key]) }
 
 }
 
+function testVue() {
+  const cwd = process.cwd()
+  const vueFile = 'node_modules/vue/dist/vue.common.js'
+  const vuePath = resolve(cwd, vueFile)
+  const Vue = require('vue')
+  Vue.config.async = false
+  Vue.config.silent = true
+  delete require.cache.vuePath
+  return Vue
+}
+
 export {
-  chai, expect, request, sinon, spy, stub, jsdom, $, $$, Globals
+  chai, expect, request, sinon, spy, stub, jsdom, $, $$, Globals, testVue
 }
