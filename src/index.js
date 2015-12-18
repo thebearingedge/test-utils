@@ -1,5 +1,5 @@
 
-import { resolve } from 'path'
+import { join } from 'path'
 import chai from 'chai'
 import sinon from 'sinon'
 import sinonChai from 'sinon-chai'
@@ -37,11 +37,11 @@ class Globals {
 function testVue() {
   const cwd = process.cwd()
   const vueFile = 'node_modules/vue/dist/vue.common.js'
-  const vuePath = resolve(cwd, vueFile)
+  const vuePath = join(cwd, vueFile)
   const Vue = require('vue')
   Vue.config.async = false
   Vue.config.silent = true
-  delete require.cache.vuePath
+  delete require.cache[require.resolve(vuePath)]
   return Vue
 }
 
