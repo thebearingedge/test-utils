@@ -49,6 +49,9 @@ const chaiHttp = app => {
   return chai.request(app)
 }
 
+const rejected = promise => promise.catch(err => err)
+
 export {
-  expect, spy, stub, jsdom, $, $$, Globals, testVue, chaiDom, chaiHttp
+  expect, spy, stub, jsdom,
+  rejected, $, $$, Globals, testVue, chaiDom, chaiHttp
 }
