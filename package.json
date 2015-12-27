@@ -1,6 +1,6 @@
 {
   "name": "@thebearingedge/test-utils",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "description": "Some test stuff",
   "main": "lib/index.js",
   "scripts": {
@@ -20,16 +20,16 @@
   "homepage": "https://github.com/thebearingedge/test-utils#readme",
   "dependencies": {
     "chai": "3.4.1",
-    "chai-as-promised": "5.1.0",
+    "chai-as-promised": "5.2.0",
     "chai-dom": "git://github.com/thebearingedge/chai-dom.git#window.HTMLElement",
     "chai-http": "1.0.0",
-    "jsdom": "7.0.2",
+    "jsdom": "7.2.2",
     "sinon": "1.17.2",
     "sinon-as-promised": "4.0.0",
     "sinon-chai": "2.8.0"
   },
   "devDependencies": {
-    "babel-cli": "6.2.0",
-    "babel-preset-es2015": "6.1.18"
+    "babel-cli": "6.3.17",
+    "babel-preset-es2015": "6.3.13"
   }
 }

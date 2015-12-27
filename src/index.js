@@ -29,15 +29,23 @@ class Globals {
 
 }
 
-function testVue() {
+function testVue(config) {
   const cwd = process.cwd()
   const vueFile = 'node_modules/vue/dist/vue.common.js'
   const vuePath = join(cwd, vueFile)
   const Vue = require('vue')
-  Vue.config.async = false
-  Vue.config.silent = true
+  Object.assign(Vue.config, config)
   delete require.cache[require.resolve(vuePath)]
   return Vue
+}
+
+function testBean() {
+  const cwd = process.cwd()
+  const beanFile = 'node_modules/bean/bean.js'
+  const beanPath = join(cwd, beanFile)
+  const bean = require('bean')
+  delete require.cache[require.resolve(beanPath)]
+  return bean
 }
 
 const { expect } = chai
