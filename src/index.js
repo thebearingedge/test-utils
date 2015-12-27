@@ -61,5 +61,5 @@ const rejected = promise => promise.catch(err => err)
 
 export {
   expect, spy, stub, jsdom,
-  rejected, $, $$, Globals, testVue, chaiDom, chaiHttp
+  rejected, $, $$, Globals, testVue, testBean, chaiDom, chaiHttp
 }
