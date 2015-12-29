@@ -61,7 +61,16 @@ const chaiHttp = app => {
 
 const rejected = promise => promise.catch(err => err)
 
+const begin = (knex, ready) => {
+  return done => {
+    rejected(knex.transaction(_trx => {
+      ready(_trx)
+      done()
+    }))
+  }
+}
+
 export {
-  expect, spy, stub, jsdom,
+  expect, spy, stub, jsdom, begin,
   rejected, $, $$, Globals, testVue, testBean, chaiDom, chaiHttp
 }
