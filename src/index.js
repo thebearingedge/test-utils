@@ -4,12 +4,14 @@ import chai from 'chai'
 import sinon from 'sinon'
 import sinonChai from 'sinon-chai'
 import chaiAsPromised from 'chai-as-promised'
+import chaiInterface from 'chai-interface'
 import _chaiHttp from 'chai-http'
 import _chaiDom from 'chai-dom'
 import { jsdom } from 'jsdom'
 
 chai.use(sinonChai)
 chai.use(chaiAsPromised)
+chai.use(chaiInterface)
 
 require('sinon-as-promised')
 

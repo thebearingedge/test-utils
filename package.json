@@ -1,6 +1,6 @@
 {
   "name": "@thebearingedge/test-utils",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "Some test stuff",
   "main": "lib/index.js",
   "scripts": {
@@ -23,6 +23,7 @@
     "chai-as-promised": "5.2.0",
     "chai-dom": "git://github.com/thebearingedge/chai-dom.git#window.HTMLElement",
     "chai-http": "1.0.0",
+    "chai-interface": "2.0.2",
     "jsdom": "7.2.2",
     "sinon": "1.17.2",
     "sinon-as-promised": "4.0.0",
