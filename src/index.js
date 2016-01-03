@@ -13,7 +13,7 @@ chai.use(sinonChai)
 chai.use(chaiAsPromised)
 chai.use(chaiInterface)
 
-require('sinon-as-promised')
+import 'sinon-as-promised'
 
 const $ = ((node, selector) => node.querySelector(selector))
 const $$ = ((node, selector) => Array.from(node.querySelectorAll(selector)))
@@ -63,8 +63,8 @@ const rejected = promise => promise.catch(err => err)
 
 const begin = (knex, ready) => {
   return done => {
-    rejected(knex.transaction(_trx => {
-      ready(_trx)
+    rejected(knex.transaction(trx => {
+      ready(trx)
       done()
     }))
   }

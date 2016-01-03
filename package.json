@@ -1,12 +1,12 @@
 {
   "name": "@thebearingedge/test-utils",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "description": "Some test stuff",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "babel": "babel src/index.js -o lib/index.js",
-    "prepublish": "npm run babel"
+    "compile": "babel src/index.js -o lib/index.js",
+    "push": "npm run -s compile && npm publish"
   },
   "repository": {
     "type": "git",
