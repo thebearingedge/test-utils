@@ -59,7 +59,16 @@ const chaiHttp = app => {
   return chai.request(app)
 }
 
+/**
+ * rejected: pass a promise and catch its rejected reason
+ */
+
 const rejected = promise => promise.catch(err => err)
+
+/**
+ * begin: for mocha tests, passed as the callback to a hook
+ * accepts a callback and passed the knex transaction object, calling done
+ */
 
 const begin = (knex, ready) => {
   return done => {
