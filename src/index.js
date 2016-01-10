@@ -4,7 +4,6 @@ import sinon from 'sinon'
 import sinonChai from 'sinon-chai'
 import chaiAsPromised from 'chai-as-promised'
 import chaiInterface from 'chai-interface'
-import jsdom from 'jsdom'
 
 chai.use(sinonChai)
 chai.use(chaiAsPromised)
@@ -50,6 +49,6 @@ const begin = (knex, ready) => {
 }
 
 export {
-  expect, spy, stub, jsdom, begin,
+  expect, spy, stub, begin,
   rejected, $, $$, globals, chai
 }
