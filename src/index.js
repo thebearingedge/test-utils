@@ -1,5 +1,4 @@
 
-import { join } from 'path'
 import chai from 'chai'
 import sinon from 'sinon'
 import sinonChai from 'sinon-chai'
@@ -18,36 +17,15 @@ import 'sinon-as-promised'
 const $ = ((node, selector) => node.querySelector(selector))
 const $$ = ((node, selector) => Array.from(node.querySelectorAll(selector)))
 
-class Globals {
 
-  constructor(globals = {}) {
-    this.keys = Object.keys(globals)
-    this.globals = globals
-  }
+function globals(vals = {}) {
 
-  add() { Object.assign(global, this.globals) }
+  const keys = Object.keys(vals)
 
-  remove() { this.keys.forEach(key => delete global[key]) }
+  function add() { Object.assign(global, vals) }
+  function remove() { keys.forEach(key => delete global[key]) }
 
-}
-
-function testVue(config) {
-  const cwd = process.cwd()
-  const vueFile = 'node_modules/vue/dist/vue.common.js'
-  const vuePath = join(cwd, vueFile)
-  const Vue = require('vue')
-  Object.assign(Vue.config, config)
-  delete require.cache[require.resolve(vuePath)]
-  return Vue
-}
-
-function testBean() {
-  const cwd = process.cwd()
-  const beanFile = 'node_modules/bean/bean.js'
-  const beanPath = join(cwd, beanFile)
-  const bean = require('bean')
-  delete require.cache[require.resolve(beanPath)]
-  return bean
+  return { add, remove }
 }
 
 const { expect } = chai
@@ -81,5 +59,5 @@ const begin = (knex, ready) => {
 
 export {
   expect, spy, stub, jsdom, begin,
-  rejected, $, $$, Globals, testVue, testBean, chaiDom, chaiHttp
+  rejected, $, $$, globals, chaiDom, chaiHttp
 }
