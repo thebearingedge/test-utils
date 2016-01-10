@@ -4,9 +4,7 @@ import sinon from 'sinon'
 import sinonChai from 'sinon-chai'
 import chaiAsPromised from 'chai-as-promised'
 import chaiInterface from 'chai-interface'
-import _chaiHttp from 'chai-http'
-import _chaiDom from 'chai-dom'
-import { jsdom } from 'jsdom'
+import jsdom from 'jsdom'
 
 chai.use(sinonChai)
 chai.use(chaiAsPromised)
@@ -31,12 +29,6 @@ function globals(vals = {}) {
 const { expect } = chai
 const { spy, stub } = sinon
 
-const chaiDom = () => chai.use(_chaiDom)
-const chaiHttp = app => {
-  chai.use(_chaiHttp)
-  return chai.request(app)
-}
-
 /**
  * rejected: pass a promise and catch its rejected reason
  */
@@ -45,7 +37,7 @@ const rejected = promise => promise.catch(err => err)
 
 /**
  * begin: for mocha tests, passed as the callback to a hook
- * accepts a callback and passed the knex transaction object, calling done
+ * accepts a callback and passes the knex transaction object, calling done
  */
 
 const begin = (knex, ready) => {
@@ -59,5 +51,5 @@ const begin = (knex, ready) => {
 
 export {
   expect, spy, stub, jsdom, begin,
-  rejected, $, $$, globals, chaiDom, chaiHttp
+  rejected, $, $$, globals, chai
 }
