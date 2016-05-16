@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.chai = exports.globals = exports.$$ = exports.$ = exports.rejected = exports.begin = exports.jsdom = exports.stub = exports.spy = exports.expect = undefined;
+exports.chai = exports.globals = exports.$$ = exports.$ = exports.rejected = exports.begin = exports.stub = exports.spy = exports.expect = undefined;
 
 var _chai = require('chai');
 
@@ -24,10 +24,6 @@ var _chaiAsPromised2 = _interopRequireDefault(_chaiAsPromised);
 var _chaiInterface = require('chai-interface');
 
 var _chaiInterface2 = _interopRequireDefault(_chaiInterface);
-
-var _jsdom = require('jsdom');
-
-var _jsdom2 = _interopRequireDefault(_jsdom);
 
 require('sinon-as-promised');
 
@@ -92,7 +88,6 @@ var begin = function begin(knex, ready) {
 exports.expect = expect;
 exports.spy = spy;
 exports.stub = stub;
-exports.jsdom = _jsdom2.default;
 exports.begin = begin;
 exports.rejected = rejected;
 exports.$ = $;

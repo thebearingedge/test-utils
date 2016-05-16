@@ -4,6 +4,7 @@ import sinon from 'sinon'
 import sinonChai from 'sinon-chai'
 import chaiAsPromised from 'chai-as-promised'
 import chaiInterface from 'chai-interface'
+import request from 'supertest-as-promised'
 
 chai.use(sinonChai)
 chai.use(chaiAsPromised)
@@ -49,6 +50,6 @@ const begin = (knex, ready) => {
 }
 
 export {
-  expect, spy, stub, begin,
+  expect, spy, stub, begin, request,
   rejected, $, $$, globals, chai
 }
