@@ -16,16 +16,6 @@ const $ = ((node, selector) => node.querySelector(selector))
 const $$ = ((node, selector) => Array.from(node.querySelectorAll(selector)))
 
 
-function globals(vals = {}) {
-
-  const keys = Object.keys(vals)
-
-  function add() { Object.assign(global, vals) }
-  function remove() { keys.forEach(key => delete global[key]) }
-
-  return { add, remove }
-}
-
 const { expect } = chai
 const { spy, stub } = sinon
 
@@ -51,5 +41,5 @@ const begin = (knex, ready) => {
 
 export {
   expect, spy, stub, begin, request,
-  rejected, $, $$, globals, chai
+  rejected, $, $$, chai
 }
