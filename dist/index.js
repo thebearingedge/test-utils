@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.chai = exports.$$ = exports.$ = exports.rejected = exports.request = exports.begin = exports.stub = exports.spy = exports.expect = undefined;
+exports.request = exports.skipSlow = exports.begin = exports.rejected = exports.stub = exports.spy = exports.expect = exports.$$ = exports.$ = undefined;
 
 var _chai = require('chai');
 
@@ -37,14 +37,15 @@ _chai2.default.use(_sinonChai2.default);
 _chai2.default.use(_chaiAsPromised2.default);
 _chai2.default.use(_chaiInterface2.default);
 
-var $ = function $(node, selector) {
+var $ = exports.$ = function $(node, selector) {
   return node.querySelector(selector);
 };
-var $$ = function $$(node, selector) {
+var $$ = exports.$$ = function $$(node, selector) {
   return Array.from(node.querySelectorAll(selector));
 };
 
 var expect = _chai2.default.expect;
+exports.expect = expect;
 var spy = _sinon2.default.spy;
 var stub = _sinon2.default.stub;
 
@@ -52,7 +53,9 @@ var stub = _sinon2.default.stub;
  * rejected: pass a promise and catch its rejected reason
  */
 
-var rejected = function rejected(promise) {
+exports.spy = spy;
+exports.stub = stub;
+var rejected = exports.rejected = function rejected(promise) {
   return promise.catch(function (err) {
     return err;
   });
@@ -63,7 +66,7 @@ var rejected = function rejected(promise) {
  * accepts a callback and passes the knex transaction object, calling done
  */
 
-var begin = function begin(knex, ready) {
+var begin = exports.begin = function begin(knex, ready) {
   return function (done) {
     rejected(knex.transaction(function (trx) {
       ready(trx);
@@ -72,12 +75,19 @@ var begin = function begin(knex, ready) {
   };
 };
 
-exports.expect = expect;
-exports.spy = spy;
-exports.stub = stub;
-exports.begin = begin;
-exports.request = _supertestAsPromised2.default;
-exports.rejected = rejected;
-exports.$ = $;
-exports.$$ = $$;
-exports.chai = _chai2.default;
+var skipSlow = exports.skipSlow = function skipSlow(_) {
+
+  function throwError() {
+    throw new Error('skipSlow only works in mocha');
+  }
+
+  var _global = global;
+  var it = _global.it;
+
+
+  if (!it) return throwError;
+
+  return process.env.SLOW_TESTS ? it : it.skip;
+};
+
+var request = exports.request = _supertestAsPromised2.default;
