@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.chai = exports.globals = exports.$$ = exports.$ = exports.rejected = exports.begin = exports.stub = exports.spy = exports.expect = undefined;
+exports.chai = exports.$$ = exports.$ = exports.rejected = exports.request = exports.begin = exports.stub = exports.spy = exports.expect = undefined;
 
 var _chai = require('chai');
 
@@ -25,6 +25,10 @@ var _chaiInterface = require('chai-interface');
 
 var _chaiInterface2 = _interopRequireDefault(_chaiInterface);
 
+var _supertestAsPromised = require('supertest-as-promised');
+
+var _supertestAsPromised2 = _interopRequireDefault(_supertestAsPromised);
+
 require('sinon-as-promised');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -39,23 +43,6 @@ var $ = function $(node, selector) {
 var $$ = function $$(node, selector) {
   return Array.from(node.querySelectorAll(selector));
 };
-
-function globals() {
-  var vals = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-
-  var keys = Object.keys(vals);
-
-  function add() {
-    Object.assign(global, vals);
-  }
-  function remove() {
-    keys.forEach(function (key) {
-      return delete global[key];
-    });
-  }
-
-  return { add: add, remove: remove };
-}
 
 var expect = _chai2.default.expect;
 var spy = _sinon2.default.spy;
@@ -89,8 +76,8 @@ exports.expect = expect;
 exports.spy = spy;
 exports.stub = stub;
 exports.begin = begin;
+exports.request = _supertestAsPromised2.default;
 exports.rejected = rejected;
 exports.$ = $;
 exports.$$ = $$;
-exports.globals = globals;
 exports.chai = _chai2.default;
