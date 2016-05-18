@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.request = exports.skipSlow = exports.begin = exports.rejected = exports.stub = exports.spy = exports.expect = exports.$$ = exports.$ = undefined;
+exports.tracery = exports.request = exports.skipSlow = exports.begin = exports.rejected = exports.stub = exports.spy = exports.expect = exports.$$ = exports.$ = undefined;
 
 var _chai = require('chai');
 
@@ -28,6 +28,10 @@ var _chaiInterface2 = _interopRequireDefault(_chaiInterface);
 var _supertestAsPromised = require('supertest-as-promised');
 
 var _supertestAsPromised2 = _interopRequireDefault(_supertestAsPromised);
+
+var _tracery = require('tracery');
+
+var _tracery2 = _interopRequireDefault(_tracery);
 
 require('sinon-as-promised');
 
@@ -91,3 +95,5 @@ var skipSlow = exports.skipSlow = function skipSlow(_) {
 };
 
 var request = exports.request = _supertestAsPromised2.default;
+
+var tracery = exports.tracery = _tracery2.default;
