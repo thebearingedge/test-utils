@@ -43,9 +43,11 @@ export const begin = (knex, ready) => {
 
 export const skipSlow = _ => {
 
+  const ctx = typeof window === 'object' ? window : global
+
   function throwError() { throw new Error('skipSlow only works in mocha') }
 
-  const { it } = global
+  const { it } = ctx
 
   if (!it) return throwError
 

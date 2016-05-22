@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.tracery = exports.request = exports.skipSlow = exports.begin = exports.rejected = exports.stub = exports.spy = exports.expect = exports.$$ = exports.$ = undefined;
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
 var _chai = require('chai');
 
 var _chai2 = _interopRequireDefault(_chai);
@@ -81,12 +83,13 @@ var begin = exports.begin = function begin(knex, ready) {
 
 var skipSlow = exports.skipSlow = function skipSlow(_) {
 
+  var ctx = (typeof window === 'undefined' ? 'undefined' : _typeof(window)) === 'object' ? window : global;
+
   function throwError() {
     throw new Error('skipSlow only works in mocha');
   }
 
-  var _global = global;
-  var it = _global.it;
+  var it = ctx.it;
 
 
   if (!it) return throwError;
