@@ -4,7 +4,6 @@ import sinon from 'sinon'
 import sinonChai from 'sinon-chai'
 import chaiAsPromised from 'chai-as-promised'
 import chaiInterface from 'chai-interface'
-import supertest from 'supertest-as-promised'
 import face from 'tracery'
 
 chai.use(sinonChai)
@@ -53,9 +52,6 @@ export const skipSlow = _ => {
 
   return process.env.SLOW_TESTS ? it : it.skip
 }
-
-
-export const request = supertest
 
 
 export const tracery = face

@@ -1,6 +1,6 @@
 {
   "name": "@thebearingedge/test-utils",
-  "version": "3.3.1",
+  "version": "4.0.0",
   "description": "Some test stuff",
   "main": "dist/index.js",
   "scripts": {
@@ -26,8 +26,6 @@
     "sinon": "1.17.4",
     "sinon-as-promised": "4.0.0",
     "sinon-chai": "2.8.0",
-    "supertest": "1.2.0",
-    "supertest-as-promised": "3.1.0",
     "tracery": "1.0.3"
   },
   "devDependencies": {

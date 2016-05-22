@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.tracery = exports.request = exports.skipSlow = exports.begin = exports.rejected = exports.stub = exports.spy = exports.expect = exports.$$ = exports.$ = undefined;
+exports.tracery = exports.skipSlow = exports.begin = exports.rejected = exports.stub = exports.spy = exports.expect = exports.$$ = exports.$ = undefined;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
@@ -26,10 +26,6 @@ var _chaiAsPromised2 = _interopRequireDefault(_chaiAsPromised);
 var _chaiInterface = require('chai-interface');
 
 var _chaiInterface2 = _interopRequireDefault(_chaiInterface);
-
-var _supertestAsPromised = require('supertest-as-promised');
-
-var _supertestAsPromised2 = _interopRequireDefault(_supertestAsPromised);
 
 var _tracery = require('tracery');
 
@@ -96,7 +92,5 @@ var skipSlow = exports.skipSlow = function skipSlow(_) {
 
   return process.env.SLOW_TESTS ? it : it.skip;
 };
-
-var request = exports.request = _supertestAsPromised2.default;
 
 var tracery = exports.tracery = _tracery2.default;
