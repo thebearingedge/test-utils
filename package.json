@@ -1,6 +1,6 @@
 {
   "name": "@thebearingedge/test-utils",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "description": "Some test stuff",
   "main": "dist/index.js",
   "scripts": {

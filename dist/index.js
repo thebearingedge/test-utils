@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.tracery = exports.skipSlow = exports.begin = exports.rejected = exports.stub = exports.spy = exports.expect = exports.$$ = exports.$ = undefined;
+exports.skipSlow = exports.begin = exports.rejected = exports.stub = exports.spy = exports.expect = exports.$$ = exports.$ = undefined;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
@@ -19,25 +19,21 @@ var _sinonChai = require('sinon-chai');
 
 var _sinonChai2 = _interopRequireDefault(_sinonChai);
 
+var _chaiStruct = require('chai-struct');
+
+var _chaiStruct2 = _interopRequireDefault(_chaiStruct);
+
 var _chaiAsPromised = require('chai-as-promised');
 
 var _chaiAsPromised2 = _interopRequireDefault(_chaiAsPromised);
-
-var _chaiInterface = require('chai-interface');
-
-var _chaiInterface2 = _interopRequireDefault(_chaiInterface);
-
-var _tracery = require('tracery');
-
-var _tracery2 = _interopRequireDefault(_tracery);
 
 require('sinon-as-promised');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _chai2.default.use(_sinonChai2.default);
+_chai2.default.use(_chaiStruct2.default);
 _chai2.default.use(_chaiAsPromised2.default);
-_chai2.default.use(_chaiInterface2.default);
 
 var $ = exports.$ = function $(node, selector) {
   return node.querySelector(selector);
@@ -92,5 +88,3 @@ var skipSlow = exports.skipSlow = function skipSlow(_) {
 
   return process.env.SLOW_TESTS ? it : it.skip;
 };
-
-var tracery = exports.tracery = _tracery2.default;
