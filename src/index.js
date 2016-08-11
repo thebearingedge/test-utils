@@ -2,13 +2,12 @@
 import chai from 'chai'
 import sinon from 'sinon'
 import sinonChai from 'sinon-chai'
+import chaiStruct from 'chai-struct'
 import chaiAsPromised from 'chai-as-promised'
-import chaiInterface from 'chai-interface'
-import face from 'tracery'
 
 chai.use(sinonChai)
+chai.use(chaiStruct)
 chai.use(chaiAsPromised)
-chai.use(chaiInterface)
 
 import 'sinon-as-promised'
 
@@ -52,6 +51,3 @@ export const skipSlow = _ => {
 
   return process.env.SLOW_TESTS ? it : it.skip
 }
-
-
-export const tracery = face
